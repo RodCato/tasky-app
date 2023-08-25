@@ -1,0 +1,23 @@
+<div>
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 text-green-500 font-medium rounded-lg text-center">
+      <%= notice %>
+    </p>
+  <% end %>
+</div>
+
+<div class="flex flex-col items-center justify-start min-h-screen">
+  <div class="w-full max-w-md mt-4">
+    <h1 class="font-bold text-2xl">Task Manager</h1>
+
+    <%= render "form", task: @task %>
+
+    <div id="tasks" class="w-full">
+      <h1 class="font-bold text-lg mb-3">Tasks</h1>
+
+      <div class="w-full px-2 md:px-5 flex flex-col items-center"> <!-- Center content on mobile -->
+        <%= render @tasks %>
+      </div>
+    </div>
+  </div>
+</div>

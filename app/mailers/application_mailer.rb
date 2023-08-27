@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "code@eliment.org"
+  default from: ""
   layout "mailer"
 end

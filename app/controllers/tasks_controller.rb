@@ -55,6 +55,7 @@ class TasksController < ApplicationController
     end
   end
 
+  # PROBABLY can do without the toggle for now until I get the deletion problem fixed
   def toggle
     @task = Task.find(params[:id])
     @task.update(completed: params[:completed])

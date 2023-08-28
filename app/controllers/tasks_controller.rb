@@ -44,7 +44,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
 
     if @task.destroy
-      flash[:notice] = "Task was successfully destroyed."
+      flash[:notice] = "Task was successfully deleted."
     else
       flash[:alert] = "Error occurred while destroying task."
     end
@@ -56,13 +56,15 @@ class TasksController < ApplicationController
   end
 
   # PROBABLY can do without the toggle for now until I get the deletion problem fixed
-  def toggle
-    @task = Task.find(params[:id])
-    @task.update(completed: params[:completed])
-
-    render json: { message: "Success" }
-  end
-
+#  def toggle
+#   @task = Task.find(params[:id])
+#   if @task.update(completed: !@task.completed)
+#     flash[:notice] = "Task was successfully completed."
+#   else
+#     flash[:alert] = "An error occurred while completing the task."
+#   end
+#   redirect_to tasks_url
+# end
   private
 
   def task_params

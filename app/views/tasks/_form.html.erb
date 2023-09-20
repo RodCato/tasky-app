@@ -1,7 +1,21 @@
-<%= form_with(model: task, class: "mb-7") do |form| %>
+<%= form_with(model: @task, class: "mb-7") do |form| %>
   <div class="flex mb-5">
-    <%= form.text_field :description, placeholder: "Add new task", class: "inline-block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-96"%>
-<%= form.date_field :due_date %>
-    <%= form.submit "Save", class: "btn py-2 ml-2 bg-blue-600 text-white" %>
+    <%= form.text_field :description, placeholder: "Add new task", class: "inline-block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-96", required: true %> 
+<%= form.date_field :due_date, class: 'input', value: Date.current.strftime('%Y-%m-%d'),
+                                  data: { value: Date.current.strftime('%m/%d/%Y') }, required: true %> 
+    <%= form.submit "Save", class: "btn py-2 ml-2 bg-blue-600 text-white" %> 
   </div>
-<% end %>f
+<% end %>  
+
+<%# Path: app/views/tasks/index.html.erb %> 
+<%# Compare this snippet from app/views/tasks/index.html.erb: %>
+<%# <h1 class="font-bold text-2xl mb-3">Tasks</h1> %>
+<%#  %>
+<%#   <div id="tasks"> %>
+<%#     <%= render @tasks %> 
+<%#   </div> %>
+
+<%# Path: app/views/tasks/new.html.erb %> 
+<%# Compare this snippet from app/views/tasks/new.html.erb: %> 
+<%# <h1 class="font-bold text-2xl mb-3">New Task</h1> %>
+<%#  %>  
